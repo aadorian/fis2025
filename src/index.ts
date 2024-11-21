@@ -13,6 +13,7 @@ import './input-counter';
 import './clipboard';
 import './datepicker';
 
+
 import Person from './domain/person';
 
 
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ) as HTMLButtonElement;
   if (updateButton) {
     updateButton.addEventListener('click', updatePerson);
+   
   }
 });
 
@@ -37,6 +39,7 @@ function updatePerson() {
     root.innerHTML = `<h1>Updated Person: ${person.getName()}</h1>`;
     if (age) {
       root.innerHTML += `<p>Age: ${person.getAge()}</p>`;
-    }
+    } 
+   
   }
 }
