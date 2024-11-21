@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "init": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "build": "npx webpack ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
