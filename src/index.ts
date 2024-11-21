@@ -1,18 +1,18 @@
-import Person  from './domain/Person';
+import Person from './domain/Person';
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   const updateButton = document.getElementById(
-    "updateButton",
+    'updateButton',
   ) as HTMLButtonElement;
   if (updateButton) {
-    updateButton.addEventListener("click", updatePerson);
+    updateButton.addEventListener('click', updatePerson);
   }
 });
 
 function updatePerson() {
-  const name = (document.getElementById("name") as HTMLInputElement).value;
-  const age = (document.getElementById("age") as HTMLInputElement)?.value;
-  const root = document.getElementById("root");
+  const name = (document.getElementById('name') as HTMLInputElement).value;
+  const age = (document.getElementById('age') as HTMLInputElement)?.value;
+  const root = document.getElementById('root');
 
   const person = new Person(name, 3);
 
