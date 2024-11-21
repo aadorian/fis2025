@@ -4,6 +4,7 @@
   "description": "A starter project using Tailwind CSS, TypeScript, and Flowbite to help you get started with your applications.",
   "main": "index.js",
   "scripts": {
+    "init": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
