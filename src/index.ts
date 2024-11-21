@@ -1,4 +1,4 @@
-import { Person } from './domain/Person';
+import Person  from './domain/Person';
 
 document.addEventListener("DOMContentLoaded", () => {
   const updateButton = document.getElementById(
