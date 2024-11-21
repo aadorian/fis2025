@@ -28,18 +28,26 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+
+
+
 function updatePerson() {
   const name = (document.getElementById('name') as HTMLInputElement).value;
   const age = (document.getElementById('age') as HTMLInputElement)?.value;
   const root = document.getElementById('root');
 
-  const person = new Person(name, age ? parseInt(age) : undefined);
+  const person = new Person(name, 0);
 
   if (root) {
     root.innerHTML = `<h1>Updated Person: ${person.getName()}</h1>`;
-    if (age) {
-      root.innerHTML += `<p>Age: ${person.getAge()}</p>`;
-    } 
+    if (isNaN(parseInt(age))) {
+        root.innerHTML += `<p>Age: must be a number</p>`;
+     } else{
+        root.innerHTML += `<p>Age: ${person.getAge()}</p>`;
+  
+    }
+        
+    }
    
   }
 }
