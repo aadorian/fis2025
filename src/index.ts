@@ -12,11 +12,14 @@ import './tooltip';
 import './input-counter';
 import './clipboard';
 import './datepicker';
-import { Modal } from 'flowbite';
-import type { ModalOptions, ModalInterface } from 'flowbite';
+
+import { System } from './domain/system';
 
 import Person from './domain/person';
 
+const system = new System();
+
+system.addPerson(new Person('John Doe', 30));
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -25,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
   ) as HTMLButtonElement;
 
   
-
   if (updateButton) {
     updateButton.addEventListener('click', updatePerson);
    
@@ -53,23 +55,21 @@ function updatePerson() {
     <span class="font-medium">Info alert!</span> Age must be >0.
   </div>
 </div>`;
+system.getPersons().forEach((p: Person) => {
+
+    root.innerHTML += `<p> ${p.getName()}</p>`;
+}
+);
     } else {
         const person = new Person(name, ageNumber);
         root.innerHTML = `<h1>Updated Person: ${person.getName()}</h1>`;
         root.innerHTML += `<p>Age: ${person.getAge()}</p>`;
+        system.addPerson(person);
+       
+        
     }
 }   
 
-const $buttonElement: HTMLElement = document.querySelector('#button');
-const $modalElement: HTMLElement = document.querySelector('#modal');
 
-const modalOptions: ModalOptions = {
-    placement: 'top-right'
-};
-
-const modal: ModalInterface = new Modal($modalElement, modalOptions);
-$buttonElement.addEventListener('click', () => modal.toggle());
-
-modal.show();
 
 }
