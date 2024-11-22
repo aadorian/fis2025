@@ -7,8 +7,14 @@ class System {
         this.listOfPersons = [];
     }
 
+
     addPerson(person: Person): void {
-        this.listOfPersons.push(person);
+        if (this.isPersonInList(person)) {
+            throw new Error('Person is already in the list.');
+        } else {
+            this.listOfPersons.push(person);
+        }
+        
     }
 
     removePerson(person: Person): void {
@@ -18,6 +24,10 @@ class System {
     getPersons(): Person[] {
         return this.listOfPersons;
     }
+    private isPersonInList(person: Person): boolean {
+        return this.listOfPersons.some(p => p === person);
+    }
+
 }
 
 export { System };

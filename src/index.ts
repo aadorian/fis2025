@@ -56,7 +56,6 @@ function updatePerson() {
   </div>
 </div>`;
 system.getPersons().forEach((p: Person) => {
-
     root.innerHTML += `<p> ${p.getName()}</p>`;
 }
 );
@@ -66,7 +65,6 @@ system.getPersons().forEach((p: Person) => {
         root.innerHTML += `<p>Age: ${person.getAge()}</p>`;
         system.addPerson(person);
        
-        
     }
 }   
 
