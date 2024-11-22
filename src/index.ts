@@ -12,7 +12,8 @@ import './tooltip';
 import './input-counter';
 import './clipboard';
 import './datepicker';
-
+import { Modal } from 'flowbite';
+import type { ModalOptions, ModalInterface } from 'flowbite';
 
 import Person from './domain/person';
 
@@ -22,6 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const updateButton = document.getElementById(
     'updateButton',
   ) as HTMLButtonElement;
+
+  
+
   if (updateButton) {
     updateButton.addEventListener('click', updatePerson);
    
@@ -56,6 +60,16 @@ function updatePerson() {
     }
 }   
 
+const $buttonElement: HTMLElement = document.querySelector('#button');
+const $modalElement: HTMLElement = document.querySelector('#modal');
 
+const modalOptions: ModalOptions = {
+    placement: 'top-right'
+};
+
+const modal: ModalInterface = new Modal($modalElement, modalOptions);
+$buttonElement.addEventListener('click', () => modal.toggle());
+
+modal.show();
 
 }
